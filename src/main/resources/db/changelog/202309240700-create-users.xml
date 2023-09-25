@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.0.xsd">
+
+    <!-- Create the users_seq sequence -->
+    <changeSet id="create-users-sequence" author="raji">
+        <createSequence sequenceName="users_seq" />
+    </changeSet>
+
+    <changeSet id="create-users-table" author="raji">
+        <createTable tableName="users">
+            <column name="user_id" type="INT">
+                <constraints primaryKey="true" nullable="false" />
+            </column>
+            <column name="user_name" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_passwd" type="VARCHAR(255)">
+                <constraints nullable="false" />
+            </column>
+            <column name="user_email" type="VARCHAR(255)" />
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
